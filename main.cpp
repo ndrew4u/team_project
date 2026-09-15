@@ -4,6 +4,7 @@
 #include<windows.h>
 using namespace std;
 // === БЛОК ПОДКЛЮЧЕНИЙ: каждый участник добавляет свой #include ===
+#include "kornakov.h"
 #include "Frolov.h"
 // === КОНЕЦ БЛОКА ПОДКЛЮЧЕНИЙ ===
 int main()
@@ -11,10 +12,13 @@ int main()
 	SetConsoleOutputCP(CP_UTF8);
     	SetConsoleCP(CP_UTF8);
 	int choice;
+	double x;
 	do
 	{
 		// === БЛОК МЕНЮ: каждый участник добавляет свои пункты ===
 		cout << "\n=== Командный проект: сборник расчётов ===\n";
+		cout << "3. Квадратный корень\n";
+		cout << "4. Кубический корень\n";
 		cout << "5. Площадь (равносторонний треугольник)\n";
 		cout << "6. Периметр (равносторонний треугольник)\n";
 		cout << "7. Высота (равносторонний треугольник)\n";
@@ -24,38 +28,58 @@ int main()
 		cin >> choice;
 		switch (choice)
 		{ // === БЛОК ОБРАБОТКИ: каждый участник добавляет свои case ===
+		case 3: {
+			cout << "Введите число (положительное):";
+			cin >> x;
+			if (x < 0) {
+				cout << "Ошибка: число должно быть положительным.\n";
+			}
+			else {
+				cout << "Квадратный корень из " << x << " = " << sqrtHeron(x) << "\n";
+			}
+			break;
+		}
+		case 4: {
+			cout << "Введите число (положительное):";
+			cin >> x;
+			cout << "Кубический корень из " << x << " = " << cubeRoot(x) << "\n";
+			break;
+		}
 		case 5: {
-    			double a;
-    			cout << "Введите сторону a: ";
-    			cin >> a;
-    			if (a <= 0) {
-        			cout << "Ошибка: сторона должна быть положительной.\n";
-    			} else {
-        			cout << "Площадь = " << equilateralArea(a) << "\n";
-    			}
-    			break;
+			double a;
+			cout << "Введите сторону a: ";
+			cin >> a;
+			if (a <= 0) {
+				cout << "Ошибка: сторона должна быть положительной.\n";
+			}
+			else {
+				cout << "Площадь = " << equilateralArea(a) << "\n";
+			}
+			break;
 		}
 		case 6: {
-    			double a;
-    			cout << "Введите сторону a: ";
-    			cin >> a;
-    			if (a <= 0) {
-        			cout << "Ошибка: сторона должна быть положительной.\n";
-    			} else {
-        			cout << "Периметр = " << equilateralPerimeter(a) << "\n";
-    			}
-    			break;
+			double a;
+			cout << "Введите сторону a: ";
+			cin >> a;
+			if (a <= 0) {
+				cout << "Ошибка: сторона должна быть положительной.\n";
+			}
+			else {
+				cout << "Периметр = " << equilateralPerimeter(a) << "\n";
+			}
+			break;
 		}
 		case 7: {
-    			double a;
-    			cout << "Введите сторону a: ";
-    			cin >> a;
-    			if (a <= 0) {
-        			cout << "Ошибка: сторона должна быть положительной.\n";
-    			} else {
-        			cout << "Высота = " << equilateralHeight(a) << "\n";
-    			}
-    			break;
+			double a;
+			cout << "Введите сторону a: ";
+			cin >> a;
+			if (a <= 0) {
+				cout << "Ошибка: сторона должна быть положительной.\n";
+			}
+			else {
+				cout << "Высота = " << equilateralHeight(a) << "\n";
+			}
+			break;
 		}
 		case 0:
 			cout << "Работа завершена!" << "\n";
@@ -63,7 +87,6 @@ int main()
 		default:
 			cout << "Такого пункта нет!" << "\n";
 		} // === КОНЕЦ БЛОКА ОБРАБОТКИ ===
-	} while (choice != 0);
-	return 0;
-}
-
+		} while (choice != 0);
+		return 0;
+	}
