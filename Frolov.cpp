@@ -1,8 +1,11 @@
 #include "Frolov.h"
 #include <cmath>
 
+// Константа: квадратный корень из 3
+const double SQRT3 = sqrt(3.0);
+
 double equilateralArea(double a) {
-    return (sqrt(3.0) / 4.0) * a * a;
+    return (SQRT3 / 4.0) * a * a;
 }
 
 double equilateralPerimeter(double a) {
@@ -10,6 +13,5 @@ double equilateralPerimeter(double a) {
 }
 
 double equilateralHeight(double a) {
-    return (a * sqrt(3.0)) / 2.0;
+    return (a * SQRT3) / 2.0;
 }
-
