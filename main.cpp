@@ -4,6 +4,7 @@
 #include<windows.h>
 using namespace std;
 // === БЛОК ПОДКЛЮЧЕНИЙ: каждый участник добавляет свой #include ===
+#include "Ivanov.h"
 #include "kornakov.h"
 #include "Frolov.h"
 // === КОНЕЦ БЛОКА ПОДКЛЮЧЕНИЙ ===
@@ -12,11 +13,15 @@ int main()
 	SetConsoleOutputCP(CP_UTF8);
     	SetConsoleCP(CP_UTF8);
 	int choice;
+	double m;
+	double a;
 	double x;
 	do
 	{
 		// === БЛОК МЕНЮ: каждый участник добавляет свои пункты ===
 		cout << "\n=== Командный проект: сборник расчётов ===\n";
+		cout << "1. Сила тяжести (F = m * g)\n";
+		cout << "2. Вес в лифте (P = m * (g + a) )\n";
 		cout << "3. Квадратный корень\n";
 		cout << "4. Кубический корень\n";
 		cout << "5. Площадь (равносторонний треугольник)\n";
@@ -28,6 +33,26 @@ int main()
 		cin >> choice;
 		switch (choice)
 		{ // === БЛОК ОБРАБОТКИ: каждый участник добавляет свои case ===
+		case 1:
+			do
+			{
+				cout << "Введите массу (m): ";
+				cin >> m;
+				if (m <= 0) cout << "Ошибка! Попробуйте снова!\n\n";
+			} while (m <= 0);
+			cout << "Результат вычислений: " << gravityForce(m) << "\n";
+			break;
+		case 2:
+			do
+				{
+                    			cout << "Введите массу (m): ";
+					cin >> m;
+                    			if (m <= 0) cout << "Ошибка! Попробуйте снова!\n\n";
+            			} while (m <= 0);
+				cout << "Введите ускорение (a): ";
+				cin >> a;
+				cout << "Результаты вычислений: " << weightInLift(m, a) << "\n";
+				break;
 		case 3: {
 			cout << "Введите число (положительное):";
 			cin >> x;
@@ -40,7 +65,7 @@ int main()
 			break;
 		}
 		case 4: {
-			cout << "Введите число (положительное):";
+			cout << "Введите число:";
 			cin >> x;
 			cout << "Кубический корень из " << x << " = " << cubeRoot(x) << "\n";
 			break;
