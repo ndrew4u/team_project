@@ -13,7 +13,6 @@ int main()
 	int choice;
 	double m;
 	double a;
-	double result;
 	do
 	{
 		// === БЛОК МЕНЮ: каждый участник добавляет свои пункты ===
@@ -33,8 +32,7 @@ int main()
 				cin >> m;
 				if (m <= 0) cout << "Ошибка! Попробуйте снова!\n\n";
 			} while (m <= 0);
-			result = gravityForce(m);
-			cout << "Результат вычислений: " << result << "\n";
+			cout << "Результат вычислений: " << gravityForce(m) << "\n";
 			break;
 		case 2:
 			do
@@ -45,8 +43,7 @@ int main()
             			} while (m <= 0);
 				cout << "Введите ускорение (a): ";
 				cin >> a;
-				result = weightInLift(m, a);
-				cout << "Результаты вычислений: " << result << "\n";
+				cout << "Результаты вычислений: " << weightInLift(m, a) << "\n";
 				break;
 		case 0:
 			cout << "Работа завершена!" << "\n";
